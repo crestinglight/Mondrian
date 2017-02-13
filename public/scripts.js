@@ -34,6 +34,8 @@ window.addEventListener('load', function(){
 	}
 
 	function makeBoxHash(){
+		var saveStateHash = {};		
+
 		for (var y = 1; y < 5 ; y++){
 			for (var x = 1; x < 5; x++){
 				saveStateHash['row' + y + 'box' + x] = document.getElementById("row_" + y + "_box_" + x).style.backgroundColor;
@@ -48,7 +50,6 @@ window.addEventListener('load', function(){
 	var selectedColor = "white";
 	mainBoxesClick.addEventListener('click', getBoxID);
 	palatteBoxesClick.addEventListener('click', selectColor);
-	var saveStateHash = {};	
-	saveStateHash = saveClick.addEventListener('click', makeBoxHash);
+	saveClick.addEventListener('click', makeBoxHash);
 
 });
