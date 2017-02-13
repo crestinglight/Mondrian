@@ -42,12 +42,15 @@ window.addEventListener('load', function(){
 		}
 		// e.preventDefault();
 		// debugger;
-		// return saveStateHash;
-		//noMoreRGB(saveStateHash);
+		//return saveStateHash;
+		var stringy = "";
+		stringy = noMoreRGB(saveStateHash);
+		return stringy;
 		//makeCSV(saveStateHash);
 	}
 
 	function noMoreRGB(hash){
+		var newString = "";
 		for (i in hash){
 			if (hash[i] === "rgb(204, 0, 0)"){
 				hash[i] = "red";
@@ -62,16 +65,16 @@ window.addEventListener('load', function(){
 				hash[i] = "white";
 			}
 		}
-		makeCSV(hash);
+		newString = makeCSV(hash);
+		return newString;
 	}
 
 	function makeCSV(hash){
 		var saveCSV = ""
 		for (i in hash){
-			saveCSV = i + "," + hash[i] + ;
-			debugger;
+			saveCSV = saveCSV + i + "," + hash[i] + "\n";
 		}
-		
+		return saveCSV;		
 	}
 
 	var mainBoxesClick = document.getElementById("painting");
@@ -80,7 +83,6 @@ window.addEventListener('load', function(){
 	var selectedColor = "white";
 	mainBoxesClick.addEventListener('click', getBoxID);
 	palatteBoxesClick.addEventListener('click', selectColor);
-	
 	saveStateCSV = saveClick.addEventListener('click', makeBoxHash);
 
 });
